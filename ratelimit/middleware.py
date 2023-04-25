@@ -1,5 +1,6 @@
-from ratelimit import UserRateLimit, AnonRateLimit
 from django.http import JsonResponse
+from ratelimit import UserRateLimit, AnonRateLimit
+
 
 
 class UserRateLimitMiddleware:
