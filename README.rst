@@ -3,6 +3,7 @@
 ## Project description
 django-ns-ratelimit is django app for limit requests using rate limit class, decorators and middleware.
 
+django-ns-ratelimit is django app for limit requests using rate limit class, decorators and middleware.
 
 ## Installation
 
