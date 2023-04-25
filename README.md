@@ -7,7 +7,9 @@ django-ns-ratelimit is django app for limit requests using rate limit class, dec
 
 ## Installation
 
-```pip install -i https://test.pypi.org/simple/ django-ns-ratelimit==1.0````
+```
+pip install -i https://test.pypi.org/simple/ django-ns-ratelimit==1.0
+```
 
 
 ## Usage
