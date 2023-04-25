@@ -31,19 +31,26 @@ class RateLimit:
         if self.get_limit() >= self.limit:
             return {
                 "message": "Request limit exceeded",
-                "status":429
+                "status": 429
             }
 
         self.increment_request_limit()
 
 
 class UserRateLimit(RateLimit):
+    """
+        This is to limit the authorized user requests 
+    """
+
     def __init__(self, request, limit, period):
         super().__init__(period, request)
         self.key = self.get_cache_key()
         self.limit = limit
 
     def get_cache_key(self):
+        """
+            Update the key_prefix for cache to store for authorized users
+        """
         self.key = self.cache_format % {
             'ident': self.get_ident()
         }
@@ -56,6 +63,9 @@ class UserRateLimit(RateLimit):
 
 
 class AnonRateLimit(RateLimit):
+    """
+        This is to limit the anonymous user requests 
+    """
     cache_format = 'rl:%(ident)s'
 
     def __init__(self, request, limit, period):
@@ -63,8 +73,10 @@ class AnonRateLimit(RateLimit):
         self.key = self.get_cache_key()
         self.limit = limit
 
-
     def get_cache_key(self):
+        """
+            Update the key_prefix for cache to store for anonymous users
+        """
         self.key = self.cache_format % {
             'ident': self.get_ident()
         }

@@ -1,6 +1,12 @@
 from ratelimit import UserRateLimit, AnonRateLimit
 from django.http import JsonResponse
+
+
 class UserRateLimitMiddleware:
+    """
+        This is used for authorized users rate limit request
+    """
+
     def __init__(self, get_response):
         self.get_response = get_response
         # One-time configuration and initialization.
@@ -17,8 +23,13 @@ class UserRateLimitMiddleware:
         # the view is called.
 
         return response
-    
+
+
 class AnonRateLimitMiddleware:
+    """
+        This is used for anonymous users rate limit request
+    """
+
     def __init__(self, get_response):
         self.get_response = get_response
         # One-time configuration and initialization.
