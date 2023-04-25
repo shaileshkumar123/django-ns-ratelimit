@@ -21,7 +21,7 @@ $ pip install -i https://test.pypi.org/simple/ django-ns-ratelimit==1.0
 2.2.1 user_method_ratelimit:
 Used for user specific request rate limiting for class base apis
 
-$ class SampleView(APIView):
+class SampleView(APIView):
     @user_method_ratelimit(5, "1M")
     def get(self, request):
         pass
@@ -29,7 +29,7 @@ $ class SampleView(APIView):
 2.2.2 anon_method_ratelimit:
 Used for Anonymous user requests rate limiting for class base apis
 
-$ class SampleView(APIView):
+class SampleView(APIView):
     @anon_method_ratelimit(5, "1M")
     def get(self, request):
         pass
@@ -37,7 +37,7 @@ $ class SampleView(APIView):
 2.2.3 user_func_ratelimit:
 Used for user specific request rate limiting for function base apis
 
-$ class SampleView(APIView):
+class SampleView(APIView):
     @user_func_ratelimit(5, "1M")
     def get(self, request):
         pass
@@ -45,7 +45,7 @@ $ class SampleView(APIView):
 2.2.4 anon_func_ratelimit:
 Used for Anonymous user requests rate limiting for function base apis
 
-$ class SampleView(APIView):
+class SampleView(APIView):
     @anon_func_ratelimit(5, "1M")
     def get(self, request):
         pass
@@ -55,7 +55,7 @@ $ class SampleView(APIView):
 2.3.1 UserRateLimitMiddleware
 
 Add this django settings Middlewares for User rate limiting
-$ MIDDLEWARE = [
+MIDDLEWARE = [
     .
     .
     .
@@ -66,7 +66,7 @@ $ MIDDLEWARE = [
 2.3.1 AnonRateLimitMiddleware
 
 Add this django settings Middlewares for Anonymous rate limiting
-$ MIDDLEWARE = [
+MIDDLEWARE = [
     .
     .
     .
